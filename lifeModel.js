@@ -1,3 +1,5 @@
 class LifeModel {
-    
+    constructor() {
+    }
+
 }
