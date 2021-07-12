@@ -10,15 +10,21 @@ class LifeView {
             'game-over');
 
         this.CONTROLS_DIV = this.createElement('div', false, 'controls');
-        this.EPOCH_COUNTER = this.createElement('div', 'Current epoch: <span id="epoch">0</span>');
+
+        this.EPOCH_COUNTER_DIV = this.createElement('div', 'Current epoch: <span id="epoch">0</span>');
+
         this.SLIDER_WRAPPER = this.createElement('div');
         this.SLIDER_LABEL = this.createElement('label', 'Generation speed', 'range-hint');
         this.SLIDER_LABEL.setAttribute('for', 'slider');
-        this.SLIDER_CONTAINER = this.createElement(
-            'div',
-            '<input type="range" id="slider" min="40" ' +
-            'max="2000" step="any" value="600">' +
-            '<span id="speedometer">600ms</span>');
+        this.SLIDER_CONTAINER = this.createElement('div');
+        this.SLIDER = this.createElement('input', false, false, 'slider');
+        this.SLIDER.setAttribute('type', 'range');
+        this.SLIDER.setAttribute( 'min', '40');
+        this.SLIDER.setAttribute( 'max', '2000');
+        this.SLIDER.setAttribute( 'step', 'any');
+        this.SLIDER.setAttribute( 'value', '600');
+        this.SPEEDOMETER = this.createElement('span', '600ms', false, 'speedometer');
+        this.SLIDER_CONTAINER.append(this.SLIDER, this.SPEEDOMETER);
         this.SLIDER_WRAPPER.append(this.SLIDER_LABEL, this.SLIDER_CONTAINER);
 
         this.START_BTN = this.createElement('button', 'Start', false, 'start');
@@ -28,7 +34,7 @@ class LifeView {
         this.DEFAULT_BTN = this.createElement('button', 'Default', false, 'default');
 
         this.CONTROLS_DIV.append(
-            this.EPOCH_COUNTER,
+            this.EPOCH_COUNTER_DIV,
             this.SLIDER_WRAPPER,
             this.START_BTN,
             this.STOP_BTN,
@@ -38,9 +44,11 @@ class LifeView {
 
         this.CANVAS_CONTAINER = this.createElement('div', false, false, 'container');
         this.CANVAS = this.createElement('canvas', false, false, 'field');
+        this.ctx = this.CANVAS.getContext('2d');
         this.CANVAS_CONTAINER.appendChild(this.CANVAS);
 
-        this.ROOT.append(this.GAME_OVER_LABEL, this.CONTROLS_DIV, this.CANVAS_CONTAINER)
+        this.ROOT.append(this.GAME_OVER_LABEL, this.CONTROLS_DIV, this.CANVAS_CONTAINER);
+        this.EPOCH_COUNTER = document.getElementById('epoch');
     }
 
     createElement(tag, innerHTML, className, id) {

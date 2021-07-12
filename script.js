@@ -1,6 +1,6 @@
 const epochLabel = document.getElementById('epoch');
 const gameOverLabel = document.getElementById('game-over');
-
+/**/
 const CELL_AMOUNT = 10; //amount of cells in row and column
 //specifying different values for COLS and ROWS will lead to incorrect data display
 const COLS = CELL_AMOUNT;
@@ -12,9 +12,11 @@ let resolution; //is used for resizing canvas and finding mouse position
 let epoch = 0;
 let intervalDelay = 600;
 let gameIsRunning = null; //variable used as interval for easy setting and clearing
-let isDrawing = false; //variable for continuous drawing, may be unused
+let isDrawing = false; //variable for continuous drawing
 //determine previous position of mouse, used for optimization of continuous drawing
 let prevX, prevY;
+
+/**/
 
 //creates two dimensional array
 const createArray = (cols, rows) => {
