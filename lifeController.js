@@ -1,7 +1,10 @@
+import LifeModel from "./lifeModel.js";
+import LifeView from "./lifeView.js";
+
 class LifeController {
-    constructor(model, view) {
-        this.model = model;
-        this.view = view;
+    constructor() {
+        this.model = new LifeModel();
+        this.view = new LifeView();
 
         this.epoch = 0;
         this.intervalDelay = 600;
@@ -152,7 +155,7 @@ class LifeController {
     }
 }
 
-const gameOfLife = new LifeController(new LifeModel(), new LifeView());
+const gameOfLife = new LifeController();
 
 window.addEventListener('resize', gameOfLife.resizeCanvas);
 window.addEventListener('mouseup', gameOfLife.finishDrawing);

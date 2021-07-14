@@ -1,4 +1,4 @@
-class LifeView {
+export default class LifeView {
     constructor() {
         //ROOT element, used as container for other elements
         this.ROOT = document.getElementById('root');

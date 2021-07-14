@@ -1,4 +1,4 @@
-class LifeModel {
+export default class LifeModel {
     constructor() {
         this.CELL_AMOUNT = 10;
 
